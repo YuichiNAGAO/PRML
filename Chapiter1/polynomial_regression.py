@@ -21,14 +21,14 @@ def prediction(x,x_train,t_train):
     mean=beta*phi(x).T.dot(matrix_S(x_train)).dot(np.dot(phi(x_train),t_train))
     var=np.diag(1/beta+phi(x).T.dot(matrix_S(x_train)).dot(phi(x)))
     std=np.sqrt(var)
-    return mean,std
+    return mean,std#N vector
 
 
 def main():
-    alpha=0.1
+    alpha=0.1#Hyperparameter
     beta=0.1
-    M=20
-    N=100
+    M=10#Order
+    N=30#Number of observed data
     x_train=np.random.rand(N)
     t_train=samples(x_train)
     x=np.linspace(0,1,100)
@@ -44,7 +44,7 @@ def main():
     plt.xlabel("x")
     plt.ylabel("t")
     plt.xlim(0,1.1)
-    plt.ylim(-2, 2)
+    plt.ylim(-3, 3)
     plt.show()
     
     
