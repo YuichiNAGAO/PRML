@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 class Polynomial_regression(object):
-    def __init__(self,alpha=0.1,beta=1,M=10):
+    def __init__(self,alpha=0.1,beta=0.4,M=10):
         self.alpha=alpha
         self.beta=beta
         self.M=M
@@ -20,12 +20,11 @@ class Polynomial_regression(object):
         return mean,std#N vector
 
 def samples(x):
-    return np.sin(2*np.pi*x)+np.random.normal(0,0.1,len(x))
-
+    return np.sin(2*np.pi*x)+np.random.normal(0,1,len(x))
 
 def main():
     alpha=0.1#Hyperparameter
-    beta=1
+    beta=0.4
     M=10#Order
     N=20#Number of observed data
     model=Polynomial_regression(alpha,beta,M)       
